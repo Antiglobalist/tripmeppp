@@ -1,0 +1,9 @@
+TripMeApp © 2025 Denis Rodionov
+
+This software is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).
+
+The project is open-source, but may not be used in commercial applications, nor rebranded, cloned, or republished under other names in app stores or other platforms without permission.
+
+"TripMeApp" and its visual identity (including name, logo, color palette, UI elements, and app icon) are part of the brand and must not be reused or modified in derivative products.
+
+For more details, see LICENSE.md or https://creativecommons.org/licenses/by-nc-nd/4.0/
