@@ -1,4 +1,4 @@
-# TripMe App
+# TripMeApp
 
 ## License
 
