@@ -1,0 +1,78 @@
+---
+description: Strategy for writing code comments and KDoc documentation in Android project
+globs: ["**/*.kt", "**/*.java"]
+alwaysApply: true
+---
+
+# Code Comments and KDoc Strategy
+
+## General Rules
+
+1. **Language**: Always write comments and KDoc in English, regardless of the communication language preference.
+
+2. **Comment Placement**: Only add comments where non-obvious logical meaning or business logic needs to be explained. Avoid trivial comments.
+
+3. **Comment Length**: Keep comments under 100 characters. If more explanation is needed, split into multiple lines.
+
+4. **Preserve Existing Comments**: Never delete existing developer comments. If a comment appears incorrect or outdated, add a note next to it rather than removing it. This preserves the developer's original intent and reasoning.
+
+## KDoc Guidelines
+
+- Write KDoc for public methods and interfaces that are complex or have multiple arguments
+- Include only meaningful information, avoid examples
+- Reference other classes where the method is used as examples when relevant
+- Focus on business logic and non-obvious behavior
+
+## Examples
+
+### Good Comment
+```kotlin
+// Calculate user's BMI based on weight and height in metric units
+fun calculateBMI(weightKg: Float, heightCm: Float): Float {
+    val heightM = heightCm / 100
+    return weightKg / (heightM * heightM)
+}
+```
+
+### Good KDoc
+```kotlin
+/**
+ * Validates workout completion based on user's fitness level and exercise type.
+ * 
+ * @param workoutDuration Duration in minutes
+ * @param exerciseType Type of exercise performed
+ * @param userFitnessLevel User's current fitness level
+ * @return true if workout meets completion criteria
+ * 
+ * @see WorkoutValidationService for usage examples
+ */
+fun validateWorkoutCompletion(
+    workoutDuration: Int,
+    exerciseType: ExerciseType,
+    userFitnessLevel: FitnessLevel
+): Boolean
+```
+
+### Avoid
+```kotlin
+// This function returns the sum of two numbers
+fun add(a: Int, b: Int): Int {
+    return a + b  // obvious operation
+}
+```
+
+### Preserving Existing Comments
+```kotlin
+// Calculate user's BMI based on weight and height in metric units
+fun calculateBMI(weightKg: Float, heightCm: Float): Float {
+    val heightM = heightCm / 100
+    return weightKg / (heightM * heightM)
+}
+
+// Original comment: "This was the old formula" - Updated to use metric units
+// Note: Formula corrected to use proper BMI calculation
+fun calculateBMI(weightKg: Float, heightCm: Float): Float {
+    val heightM = heightCm / 100
+    return weightKg / (heightM * heightM)
+}
+```
