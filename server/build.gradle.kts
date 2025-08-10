@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinJvm)
     alias(libs.plugins.ktor)
+    alias(libs.plugins.spotless)
     application
 }
 
@@ -20,4 +21,11 @@ dependencies {
     implementation(libs.ktor.server.netty)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.testJunit)
+}
+
+spotless {
+    kotlin {
+        target("src/**/*.kt")
+        licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+    }
 }

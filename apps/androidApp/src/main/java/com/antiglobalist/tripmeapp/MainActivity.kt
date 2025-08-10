@@ -15,7 +15,6 @@
  *  * See the LICENSE.md file in the root of the project for full license information.
  *
  */
-
 package com.antiglobalist.tripmeapp
 
 import android.os.Bundle

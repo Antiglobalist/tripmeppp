@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.spotless)
 }
 
 kotlin {
@@ -38,7 +39,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.antiglobalist.tripmeapp.uicore"
+    namespace = "com.antiglobalist.tripmeapp.designsystem"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -57,4 +58,11 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+}
+
+spotless {
+    kotlin {
+        target("src/**/*.kt")
+        licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+    }
 }

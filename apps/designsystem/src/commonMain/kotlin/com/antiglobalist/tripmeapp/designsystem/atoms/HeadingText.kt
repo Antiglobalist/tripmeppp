@@ -15,23 +15,21 @@
  *  * See the LICENSE.md file in the root of the project for full license information.
  *
  */
-package com.antiglobalist.tripmeapp
+package com.antiglobalist.tripmeapp.designsystem.atoms
 
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.server.testing.*
-import kotlin.test.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.FontWeight
 
-class ApplicationTest {
-
-    @Test
-    fun testRoot() = testApplication {
-        application {
-            module()
-        }
-        val response = client.get("/")
-        assertEquals(HttpStatusCode.OK, response.status)
-        assertEquals("Ktor: ${Greeting().greet()}", response.bodyAsText())
-    }
+@Composable
+fun HeadingText(
+    text: String,
+) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.onBackground,
+    )
 }

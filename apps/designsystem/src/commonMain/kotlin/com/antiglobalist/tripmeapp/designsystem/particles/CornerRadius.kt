@@ -15,23 +15,14 @@
  *  * See the LICENSE.md file in the root of the project for full license information.
  *
  */
-package com.antiglobalist.tripmeapp
+package com.antiglobalist.tripmeapp.designsystem.particles
 
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.server.testing.*
-import kotlin.test.*
+import androidx.compose.ui.unit.dp
 
-class ApplicationTest {
-
-    @Test
-    fun testRoot() = testApplication {
-        application {
-            module()
-        }
-        val response = client.get("/")
-        assertEquals(HttpStatusCode.OK, response.status)
-        assertEquals("Ktor: ${Greeting().greet()}", response.bodyAsText())
-    }
+object CornerRadius {
+    val extraSmall = 4.dp
+    val small = 8.dp
+    val semiExtraSmall = 12.dp
+    val medium = 16.dp
+    val large = 24.dp
 }
