@@ -31,6 +31,7 @@ dependencyResolutionManagement {
 include(":apps:androidApp")
 include(":apps:iosApp")
 include(":apps:sharedApp")
-include(":apps:designsystem")
+include(":apps:core:designsystem")
 include(":server")
 include(":shared")
+include(":apps:feature:login")

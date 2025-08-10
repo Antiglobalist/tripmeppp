@@ -20,12 +20,7 @@ kotlin {
     listOf(
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "SharedApp"
-            isStatic = true
-        }
-    }
+    )
 
     sourceSets {
         commonMain.dependencies {
@@ -48,7 +43,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.antiglobalist.tripmeapp.sharedapp"
+    namespace = "com.antiglobalist.tripmeapp.feature.login"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

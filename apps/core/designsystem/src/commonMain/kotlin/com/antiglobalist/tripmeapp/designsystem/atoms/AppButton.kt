@@ -51,8 +51,8 @@ import com.antiglobalist.tripmeapp.designsystem.particles.TextVariant
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import tripmeapp.apps.designsystem.generated.resources.Res
-import tripmeapp.apps.designsystem.generated.resources.compose_multiplatform
+import tripmeapp.apps.core.designsystem.generated.resources.Res
+import tripmeapp.apps.core.designsystem.generated.resources.compose_multiplatform
 
 enum class AppButtonVariant {
     Primary,
@@ -125,7 +125,6 @@ fun AppButton(
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier
                 .then(if (variant != AppButtonVariant.Circle) Modifier else Modifier)
-                .let { it }
                 .padding(horizontal = if (variant == AppButtonVariant.Circle) 0.dp else horizontalPadding)
         ) {
             if (isLoading) {
@@ -134,7 +133,7 @@ fun AppButton(
                 if (variant != AppButtonVariant.Circle) Spacer(Modifier.width(Spacing.extraSmall))
             } else if (icon != null) {
                 when (icon) {
-                    is org.jetbrains.compose.resources.DrawableResource -> {
+                    is DrawableResource -> {
                         Icon(painter = painterResource(icon), contentDescription = null, modifier = Modifier.size(iconSize))
                     }
                 }
