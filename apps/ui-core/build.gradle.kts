@@ -16,15 +16,11 @@ kotlin {
         }
     }
 
+    // iOS targets for KMP compile; framework publishing is handled by consumer module
     listOf(
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "SharedApp"
-            isStatic = true
-        }
-    }
+    )
 
     sourceSets {
         commonMain.dependencies {
@@ -34,11 +30,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(projects.apps.uiCore)
-            implementation(libs.navigation.compose)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation(projects.shared)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -47,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.antiglobalist.tripmeapp.sharedapp"
+    namespace = "com.antiglobalist.tripmeapp.uicore"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -56,11 +47,6 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
         }
     }
     compileOptions {
@@ -72,4 +58,3 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-
